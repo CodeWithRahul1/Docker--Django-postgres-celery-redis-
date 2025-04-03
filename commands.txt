@@ -1,0 +1,62 @@
+docker build --tag python-django .
+docker run --publish 8000:8000 python-django
+
+#2
+
+sudo docker-compose build
+
+
+📌 Docker Installation & Version Check
+
+docker --version                 # Check Docker version
+docker-compose --version         # Check Docker Compose version (if v1)
+docker compose version           # Check Docker Compose version (if v2)
+
+🛠️ Fixing Docker Permissions
+
+sudo systemctl restart docker    # Restart Docker service
+sudo chmod 777 /var/run/docker.sock  # Fix "permission denied" error
+
+🐳 Building and Running Docker Containers
+
+docker compose build             # Build the Docker image
+docker compose build --no-cache  # Force rebuild without cache
+docker compose up                # Start the container
+docker compose up -d             # Start container in detached mode (background)
+docker compose down              # Stop and remove containers
+
+🗑️ Cleaning Up Containers & Images
+
+docker ps                        # Show running containers
+docker ps -a                     # Show all containers (including stopped)
+docker images                    # List all Docker images
+docker rm <container_id>         # Remove a specific container
+docker rmi <image_id>            # Remove a specific image
+docker system prune -a           # Remove all unused containers, networks, and images
+
+🔧 Debugging & Logs
+
+docker compose logs              # Show logs of running containers
+docker compose logs -f           # Follow (real-time) logs
+docker exec -it <container_id> bash  # Enter running container’s shell
+
+🐍 Additional Fixes (Inside Dockerfile)
+
+# Install the latest SQLite inside the Docker container
+RUN apt-get update && apt-get install -y sqlite3 && sqlite3 --version
+
+
+#part2
+
+docker-compose build
+docker-compose run --rm ap django-admin startproject core.
+docke-compose up
+
+#part3
+
+docker-compose build
+docker-compose run --rm ap django-admin startproject core.
+docke-compose up
+
+docker_exec -it django_container_db /bin/bash
+
